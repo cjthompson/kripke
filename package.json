@@ -1,0 +1,25 @@
+{
+  "name": "kripke",
+  "version": "1.0.0",
+  "description": "Encrypt and decrypt data using pbkdf2 derived key with a random salt and iv and an optional HMAC signature",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cjthompson/kripke.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "cipher",
+    "encrypt",
+    "decrypt",
+    "hmac",
+    "pbkdf2"
+  ],
+  "author": "Chris Thompson <chris@thompson-web.org>",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.2.1"
+  }
+}
