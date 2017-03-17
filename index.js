@@ -57,7 +57,7 @@ function Kripke (options) {
     }
     if (!Buffer.isBuffer(salt)) { salt = new Buffer(salt, 'base64'); }
 
-    crypto.pbkdf2(key, salt, iterations, keyLength, function (err, derivedKey) {
+    crypto.pbkdf2(key, salt, iterations, keyLength, hmacAlgorithm, function (err, derivedKey) {
       callback(err, derivedKey, salt);
     });
   };
@@ -230,7 +230,7 @@ Kripke.encrypt = function (plainText, options, callback) {
   salt = new Buffer(crypto.randomBytes(16));
 
   try {
-    crypto.pbkdf2(options.key, salt, options.iterations, 32, function (err, derivedKey) {
+    crypto.pbkdf2(options.key, salt, options.iterations, 32, options.hmacAlgorithm, function (err, derivedKey) {
       var cipher, encodedData;
 
       if (derivedKey) {
@@ -324,7 +324,7 @@ Kripke.decrypt = function (encodedText, options, callback) {
 
   // Decrypt the payload using the derived key
   if (!err) {
-    crypto.pbkdf2(options.key, salt, options.iterations, 32, function (err, derivedKey) {
+    crypto.pbkdf2(options.key, salt, options.iterations, 32, options.hmacAlgorithm, function (err, derivedKey) {
       var decipheredText;
       if (derivedKey) {
         try {
