@@ -1,6 +1,6 @@
 {
   "name": "kripke",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Encrypt and decrypt data using pbkdf2 derived key with a random salt and iv and an optional HMAC signature",
   "repository": {
     "type": "git",
